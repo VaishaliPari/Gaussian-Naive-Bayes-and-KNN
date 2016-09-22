@@ -7,7 +7,7 @@ testData = csvread('test.txt');
 testDataSize  = size(testData,1);
 
 %------Training the gaussian naive bayes classifier--------------
-
+fprintf('Naive Bayes:\n');
 %Separating all the training samples into separate classes
 class1 = [];
 class2 = [];
@@ -72,7 +72,7 @@ end
 
 accuratePredictions = (calculatedY == trainData(:,11));
 trainingAccuracy = sum(accuratePredictions)*100/size(accuratePredictions,1);
-fprintf('Training Accuracy = %d\n',trainingAccuracy);
+fprintf('Training Accuracy = %4.2f\n',trainingAccuracy);
 
     
 %Testing
@@ -95,11 +95,11 @@ end
 
 accuratePredictions = (calculatedY == testData(:,11));
 testAccuracy = sum(accuratePredictions)*100/size(accuratePredictions,1);
-fprintf('Test Accuracy = %d\n',testAccuracy);
+fprintf('Test Accuracy = %4.2f\n\n',testAccuracy);
 
 
 %---------------------Part 2---------------------------------
-fprintf('K Nearest Neighbours\n\n');
+fprintf('K Nearest Neighbours:\n');
 kValues = [1 3 5 7];
 x = trainData(:,2:10);
 y = trainData(:,11);
